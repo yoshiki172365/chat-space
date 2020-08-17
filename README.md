@@ -63,7 +63,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|e-mail|string|null: false, unique: true|
+|e_mail|string|null: false, unique: true|
 |password|string|null: false, unique: true|
 
 ##Association
