@@ -1,0 +1,26 @@
+.Chat-main
+  .Chat-main__group-info
+    .Chat-main__group-info__info
+      .Chat-main__group-info__info__name test
+      .Chat-main__group-info__info__member　Member yoshi
+    =link_to "#" , class: "Chat-main__group-info__edit" do
+      Edit 
+  .Chat-main__message-list
+    .Chat-main__message-list__box
+      .Chat-main__message-list__box__info
+        .Chat-main__message-list__box__info__name yoshi
+        .Chat-main__message-list__box__info__date ８月３１日
+      .Chat-main__message-list__box__message　こんにちは
+    .Chat-main__message-list__box
+      .Chat-main__message-list__box__info
+        .Chat-main__message-list__box__info__name yoshi
+        .Chat-main__message-list__box__info__date ８月３１日
+      .Chat-main__message-list__box__message　こんにちは
+  .Chat-main__message-form
+    %form.Chat-main__message-form__form
+      .Chat-main__message-form__form__type
+        %input.Chat-main__message-form__form__type__text{placeholder: "type a message", type: "text" , name:"message", id: "message__content"}
+        %label.Chat-main__message-form__form__type__image{for: "message_image"}
+          = icon('fas', 'image' , class: "Chat-main__message-form__form__type__image__a" )
+          %input.Chat-main__message-form__form__type__image__b{type: "file" , id: "message_image"}
+      %input.Chat-main__message-form__form__send{type: "submit" , value: "SEND"}
