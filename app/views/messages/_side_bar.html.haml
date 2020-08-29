@@ -1,13 +1,14 @@
 .Side-bar
   .Side-bar__user
     .Side-bar__user__info
-      %h3.Side-bar__user__info__name yoshi
+      %h3.Side-bar__user__info__name 
+        = current_user.name
       %ul.Side-bar__user__info__icon
         %li.Side-bar__user__info__icon__edit
           %a{ href: '#'}
           = icon('far', 'edit', class: 'edit')
-          %a{ href: '#'}
-          = icon('fas', 'cog', class: 'cog')
+          =link_to edit_user_path(current_user) do
+            = icon('fas', 'cog', class: 'cog')
   .Side-bar__group-list
     .Side-bar__group-list__group
       .Side-bar__group-list__group__name yoshi
