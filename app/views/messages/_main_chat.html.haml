@@ -1,26 +1,21 @@
 .Chat-main
   .Chat-main__group-info
     .Chat-main__group-info__info
-      .Chat-main__group-info__info__name test
-      .Chat-main__group-info__info__member　Member yoshi
-    =link_to "#" , class: "Chat-main__group-info__edit" do
+      .Chat-main__group-info__info__name
+        = @group.name
+      .Chat-main__group-info__info__member
+        Member
+        - @group.users.each do |user|
+          = user.name
+    =link_to edit_group_path(@group) , class: "Chat-main__group-info__edit" do
       Edit 
   .Chat-main__message-list
-    .Chat-main__message-list__box
-      .Chat-main__message-list__box__info
-        .Chat-main__message-list__box__info__name yoshi
-        .Chat-main__message-list__box__info__date ８月３１日
-      .Chat-main__message-list__box__message　こんにちは
-    .Chat-main__message-list__box
-      .Chat-main__message-list__box__info
-        .Chat-main__message-list__box__info__name yoshi
-        .Chat-main__message-list__box__info__date ８月３１日
-      .Chat-main__message-list__box__message　こんにちは
+    = render @messages
   .Chat-main__message-form
-    %form.Chat-main__message-form__form
+    = form_with model: [@group, @message], html: {class: "Chat-main__message-form__form"}, local: true do |f|
       .Chat-main__message-form__form__type
-        %input.Chat-main__message-form__form__type__text{placeholder: "type a message", type: "text" , name:"message", id: "message__content"}
-        %label.Chat-main__message-form__form__type__image{for: "message_image"}
+        = f.text_field :content, class: 'Chat-main__message-form__form__type__text', placeholder: "type a message"
+        = f.label :image, class: 'Chat-main__message-form__form__type__image' do
           = icon('fas', 'image' , class: "Chat-main__message-form__form__type__image__a" )
-          %input.Chat-main__message-form__form__type__image__b{type: "file" , id: "message_image"}
-      %input.Chat-main__message-form__form__send{type: "submit" , value: "SEND"}
+          = f.file_field :image, class: 'Chat-main__message-form__form__type__image__b'
+      =f.submit 'Send', class: 'Chat-main__message-form__form__send'
