@@ -40,6 +40,7 @@
     background-color: #fafafa;
     height: calc(100vh - 190px);
     padding: 35px 0 0 40px;
+    overflow: scroll;
     &__box{
       &__info{
         display: flex;
