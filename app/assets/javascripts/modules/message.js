@@ -12,10 +12,10 @@ $(function() {
                       </div>
                     </div>
                     <div class="Chat-main__message-list__box__message">
-                      <p class="Message__content">
+                      <p class="Chat-main__message-list__box__message__content">
                         ${message.content}
                       </p>
-                      <img class="Message__image" src-"${message.image}">
+                      <img class="Chat-main__message-list__box__message__image" src="${message.image}">
                     </div>
                   </div>`
       return html;
@@ -30,7 +30,7 @@ $(function() {
                     </div>
                   </div>
                   <div class="Chat-main__message-list__box__message">
-                    <p class="Message__content">
+                    <p class="Chat-main__message-list__box__message__content">
                       ${message.content}
                     </p>
                   </div>
